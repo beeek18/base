@@ -6,6 +6,8 @@
     "dev": "PORT=3000 next dev --turbopack",
     "build": "next build",
     "start": "PORT=3000 next start",
+    "commit": "git add . && cz && git push",
+    "check": "git fetch && git pull && npm i --legacy-peer-deps",
     "lint": "next lint"
   },
   "dependencies": {

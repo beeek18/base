@@ -9,6 +9,8 @@
     "build": "nest build",
     "dev": "NODE_ENV=dev nest start --watch",
     "prod": "NODE_ENV=prod node dist/main",
+    "commit": "git add . && cz && git push",
+    "check": "git fetch && git pull && npm i --legacy-peer-deps",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "migrate": "dotenv -e .env.dev -- npx prisma migrate dev --name",
