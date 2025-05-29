@@ -1,0 +1,11 @@
+build/
+dist/
+node_modules/
+*.log
+*.tmp
+*.swp
+*.md
+*.txt
+*.config.js
+*.yml
+.*.js
