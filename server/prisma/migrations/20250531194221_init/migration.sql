@@ -7,7 +7,7 @@ CREATE TYPE "UserStatus" AS ENUM ('ACTIVE', 'PAUSED', 'DELETED');
 -- CreateTable
 CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL DEFAULT '',
+    "name" TEXT,
     "email" TEXT NOT NULL,
     "googleId" TEXT,
     "hashPassword" TEXT,
@@ -22,14 +22,14 @@ CREATE TABLE "users" (
 -- CreateTable
 CREATE TABLE "sessions" (
     "id" SERIAL NOT NULL,
-    "userId" INTEGER NOT NULL,
     "refreshToken" TEXT NOT NULL,
-    "userAgent" TEXT DEFAULT '',
-    "ip" TEXT DEFAULT '',
+    "userAgent" TEXT,
+    "ip" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "expiresAt" TIMESTAMP(3) NOT NULL,
     "revoked" BOOLEAN NOT NULL DEFAULT false,
+    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "sessions_pkey" PRIMARY KEY ("id")
 );

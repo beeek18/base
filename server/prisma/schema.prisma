@@ -21,7 +21,7 @@ enum UserStatus {
 
 model User {
   id           Int        @id @default(autoincrement())
-  name         String     @default("")
+  name         String?
   email        String     @unique
   googleId     String?    @unique
   hashPassword String?
@@ -37,16 +37,16 @@ model User {
 
 model Session {
   id           Int      @id @default(autoincrement())
-  userId       Int
   refreshToken String   @unique
-  userAgent    String?  @default("")
-  ip           String?  @default("")
+  userAgent    String?
+  ip           String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   expiresAt    DateTime
   revoked      Boolean  @default(false)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([userId])
   @@index([refreshToken])
