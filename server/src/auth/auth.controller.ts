@@ -57,7 +57,7 @@ export class AuthController {
   }
 
   @Post('logout')
-  async logout(@Body() dto: JwtAuthDto, @User('sub') userId: number) {
+  async logout(@Body() dto: JwtAuthDto, @User('id') userId: number) {
     await this.auth.logout(dto, userId);
     return { message: 'Logged out' };
   }
