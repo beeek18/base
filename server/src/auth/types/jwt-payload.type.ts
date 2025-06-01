@@ -7,7 +7,8 @@ export interface JwtPayload {
   exp?: number;
 }
 
-export interface JwtPayloadWithJwtStrategy extends JwtPayload {
+export interface JwtPayloadWithJwtStrategy {
+  id: number;
   roles: UserRole[];
 }
 
