@@ -1,6 +1,5 @@
 import { Body, Controller, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
-import { User as PrismaUser } from 'generated/prisma';
 
 import { AuthService } from './auth.service';
 
@@ -58,7 +57,7 @@ export class AuthController {
   }
 
   @Post('logout')
-  async logout(@Body() dto: JwtAuthDto, @User('id') userId: PrismaUser['id']) {
+  async logout(@Body() dto: JwtAuthDto, @User('id') userId: number) {
     await this.auth.logout(dto, userId);
     return { message: 'Logged out' };
   }

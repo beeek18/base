@@ -202,7 +202,7 @@ export class AuthService {
     return data;
   }
 
-  async logout(dto: JwtAuthDto, userId: User['id']) {
+  async logout(dto: JwtAuthDto, userId: number) {
     const session = await this.prisma.session.findFirst({
       where: { refreshToken: dto['refreshToken'], userId, revoked: false },
     });
